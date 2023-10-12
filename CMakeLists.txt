@@ -1,6 +1,12 @@
-add_library(rpi_pico_mqtt_lib ${CMAKE_CURRENT_LIST_DIR}/src/mqtt_lib.cpp ${CMAKE_CURRENT_LIST_DIR}/inc/mqtt_lib.hpp)
-target_include_directories(rpi_pico_mqtt_lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/inc/)
-target_link_libraries(rpi_pico_mqtt_lib
+# Create library with the name: cmake_workshop_library
+# Add the .cpp sources to it!
+add_library(cmake_workshop_library ${CMAKE_CURRENT_LIST_DIR}/src/mqtt_lib.cpp)
+
+# Add the include directory of the library to the cmake_workshop_library target
+target_include_directories(cmake_workshop_library PUBLIC ${CMAKE_CURRENT_LIST_DIR}/inc/)
+
+# Link the library with the rpi pico board sdk dependencies
+target_link_libraries(cmake_workshop_library
         pico_cyw43_arch_lwip_poll
         pico_stdlib
         pico_lwip_mbedtls
